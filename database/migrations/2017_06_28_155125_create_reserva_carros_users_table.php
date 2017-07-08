@@ -23,8 +23,8 @@ class CreateReservaCarrosUsersTable extends Migration
             $table->double('costo');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->integer('carros_golf')->unsigned();
-            $table->foreign('carros_golf')->references('id')->on('carros_golf');
+            $table->integer('carros_golf_id')->unsigned();
+            $table->foreign('carros_golf_id')->references('id')->on('carros_golf');
             $table->timestamps();
         });
     }
