@@ -12,5 +12,22 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+Route::get('/admin', function () {
+    return view('dashboard');
+});
+
+//Gestión de carros
+Route::resource('carros', 'CarroGolfController', ['except' => ['show']]);
+Route::resource('/carros/reserva', 'ReservaCarrosController', ['except' => ['show']]);
+
+//Gestión de tours
+Route::resource('tours', 'ToursController', ['except' => ['show']]);
+Route::resource('tours/reserva', 'ReservaToursController', ['except' => ['show']]);
+//Route::get('reservar-tour', 'ReservaToursController@reservar');
+
+//Venta de fotos
+Route::resource('fotos', 'VentaFotosController', ['except' => ['show']]);
+Route::get('venta-fotos', 'VentaFotosController@venta');
